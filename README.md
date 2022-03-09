@@ -9,3 +9,7 @@
 ### Challenge
 
 ![1차_Challenge](https://user-images.githubusercontent.com/58412914/155061623-8b12302b-a896-4908-a0c1-c91591a7a42f.png)
+
+## 2차 미션 스크린샷
+
+### Basic
