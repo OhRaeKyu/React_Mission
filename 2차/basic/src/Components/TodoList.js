@@ -1,24 +1,9 @@
 import React from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import styled from 'styled-components';
 
-export default function TodoList({ todoData, setTodoData }) {
-  const handleCompleteChange = (id) => {
-    let newTodoData = todoData.map((data) => {
-      if (data.id === id) {
-        data.completed = !data.completed;
-      }
-      return data;
-    });
+import List from './List';
 
-    setTodoData(newTodoData);
-  };
-
-  const deleteList = (id) => {
-    let newTodoData = todoData.filter((data) => data.id !== id);
-    setTodoData(newTodoData);
-  };
-
+const TodoList = React.memo(({ todoData, setTodoData }) => {
   const handleEnd = (result) => {
     if (!result.destination) return;
     const newTodoData = todoData;
@@ -39,22 +24,16 @@ export default function TodoList({ todoData, setTodoData }) {
                 index={index}
               >
                 {(provided, snapshot) => (
-                  <TodoItem
-                    isDrag={snapshot.isDragging}
-                    isCompleted={data.completed}
-                    {...provided.draggableProps}
-                    ref={provided.innerRef}
-                    {...provided.dragHandleProps}
-                  >
-                    <input
-                      type="checkbox"
-                      defaultChecked={data.completed}
-                      id={data.id}
-                      onChange={() => handleCompleteChange(data.id)}
-                    />
-                    <label htmlFor={data.id}>{data.title}</label>
-                    <DeleteBtn onClick={() => deleteList(data.id)}>X</DeleteBtn>
-                  </TodoItem>
+                  <List
+                    key={data.id}
+                    id={data.id}
+                    title={data.title}
+                    completed={data.completed}
+                    todoData={todoData}
+                    setTodoData={setTodoData}
+                    provided={provided}
+                    snapshot={snapshot}
+                  />
                 )}
               </Draggable>
             ))}
@@ -64,21 +43,6 @@ export default function TodoList({ todoData, setTodoData }) {
       </Droppable>
     </DragDropContext>
   );
-}
+});
 
-const TodoItem = styled.div`
-  padding: 10px;
-  border-bottom: 1px #ccc dotted;
-  text-decoration: ${(props) => (props.isCompleted ? 'line-through' : 'none')};
-  background-color: ${(props) =>
-    props.isDrag ? 'rgba(0, 0, 0, .7)' : 'inherit'};
-`;
-
-const DeleteBtn = styled.button`
-  cursor: pointer;
-  color: #fff;
-  border: none;
-  padding: 5px 9px;
-  border-radius: 50%;
-  float: right;
-`;
+export default TodoList;
