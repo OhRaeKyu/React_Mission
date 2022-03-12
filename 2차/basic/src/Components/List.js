@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 const List = React.memo(
@@ -17,10 +17,13 @@ const List = React.memo(
       setTodoData(newTodoData);
     };
 
-    const deleteList = (id) => {
-      let newTodoData = todoData.filter((data) => data.id !== id);
-      setTodoData(newTodoData);
-    };
+    const deleteList = useCallback(
+      (id) => {
+        let newTodoData = todoData.filter((data) => data.id !== id);
+        setTodoData(newTodoData);
+      },
+      [todoData]
+    );
 
     const modifyList = () => {
       setModify(true);
