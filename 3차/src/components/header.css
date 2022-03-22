@@ -1,0 +1,42 @@
+.header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  transition: all 0.3s;
+}
+.header.nav_black {
+  background-color: #000;
+}
+.header h1 {
+  width: 8rem;
+  height: 2.4rem;
+}
+.header h1 img {
+  height: 28px;
+}
+.header button {
+  background: url(../img/profile.png) no-repeat 0 50% / contain;
+  padding: 0;
+  width: 3.2rem;
+  height: 3.2rem;
+}
+.search-input {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.4rem;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+} /*# sourceMappingURL=header.css.map */

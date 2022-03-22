@@ -12,4 +12,12 @@
 
 ## 2차 미션 스크린샷
 
+## 3차 미션 스크린샷
+
 ### Basic
+
+![3차_Basic](https://user-images.githubusercontent.com/58412914/159505936-f7590f5c-eb86-4e86-8ff2-2d10526e145c.gif)
+
+### Challenge
+
+![3차_Challenge](https://user-images.githubusercontent.com/58412914/159505916-be290e2f-faf5-408c-a8b7-6585fdb8184b.gif)
